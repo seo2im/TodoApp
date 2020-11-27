@@ -4,7 +4,7 @@ const TODO_INIT = 'todo/INIT' as const;
 const TODO_ADD = 'todo/ADD' as const;
 const TODO_DEL = 'todo/DEL' as const;
 const TODO_EDIT = 'todo/EDIT' as const;
-const TODO_DONE = 'todo/DONE' as const;
+const TODO_CHANGE = 'todo/DONE' as const;
 
 const initState : tTodos = [{
 	catId : 0, id : 0, name : "testTodo1",  state : false
@@ -31,8 +31,8 @@ export const Edit = ({ id, name } : { id : number, name : string }) => ({
 	payload : { id, name }
 });
 
-export const Done = ({ id } : { id : number}) => ({
-	type : TODO_DONE,
+export const Change = ({ id } : { id : number}) => ({
+	type : TODO_CHANGE,
 	payload : { id }
 });
 
@@ -41,7 +41,7 @@ type Action =
 	| ReturnType<typeof Add>
 	| ReturnType<typeof Del>
 	| ReturnType<typeof Edit>
-	| ReturnType<typeof Done>;
+	| ReturnType<typeof Change>;
 const Reducer = (state : tTodos = [], action : Action) => {
 	switch (action.type) {
 		case TODO_INIT :
@@ -66,10 +66,10 @@ const Reducer = (state : tTodos = [], action : Action) => {
 				return todo;
 			})
 		
-		case TODO_DONE :
+		case TODO_CHANGE :
 			return state.map(todo => {
 				if (todo.id === action.payload.id)
-					return {...todo, state : true}
+					return {...todo, state : !todo.state}
 				return todo;
 			})
 			

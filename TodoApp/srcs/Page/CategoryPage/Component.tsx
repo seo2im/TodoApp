@@ -5,7 +5,7 @@ import * as styled from './Style'
 const Component = 
 ({ category, todos, records, 
 categoryEdit, categoryDel,
-todoAdd, todoDel, todoDone, todoEdit,
+todoAdd, todoDel, todoChange, todoEdit,
 recordAdd } : PageProp.CategoryPage) => 
 {
 	return (

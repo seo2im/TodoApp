@@ -24,8 +24,8 @@ const Container = ({ route }) => {
 	const todoEdit = (id : number, name : string) => {
 		dispatch(todo.Edit({ id, name }));
 	}
-	const todoDone = (id : number) => {
-		dispatch(todo.Done({ id }));
+	const todoChange = (id : number) => {
+		dispatch(todo.Change({ id }));
 	}
 	const todoDel = (id : number) => {
 		dispatch(todo.Del({ id }));
@@ -40,7 +40,7 @@ const Container = ({ route }) => {
 			todos={todos.filter(todo => todo.catId === catId)}
 			records={records.filter(todo => todo.catId === catId)}
 			categoryEdit={categoryEdit}categoryDel={categoryDel}
-			todoAdd={todoAdd}todoEdit={todoEdit}todoDone={todoDone}todoDel={todoDel}
+			todoAdd={todoAdd}todoEdit={todoEdit}todoChange={todoChange}todoDel={todoDel}
 			recordAdd={recordAdd}/>
 	)
 }
