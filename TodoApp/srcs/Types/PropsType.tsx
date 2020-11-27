@@ -32,8 +32,6 @@ export type CheckBox = {
 }
 
 export type Menu = {
-	visible : boolean,
 	setVisible : (visible : boolean) => void,
-	categories : tCategories,
-	categoryAdd : (name : string) => void
+	categories : tCategories
 }

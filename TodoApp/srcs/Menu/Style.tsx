@@ -1,5 +1,5 @@
 import styled from 'styled-components/native'
-import * as Basic from '../../Styles/Basic'
+import * as Basic from '../Styles/Basic'
 
 export const View = styled(Basic.Horizontal)`
 	width : 100%;
@@ -21,8 +21,7 @@ export const TitleDiv = styled(Basic.Horizontal)`
 	border-bottom-color : grey;
 `
 export const AddButton = styled.TouchableOpacity`
-	width : 15px;
-	height : 15px;
+	
 `
 export const ButtonText = styled(Basic.h1)`
 

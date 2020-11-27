@@ -5,7 +5,10 @@ export { MainPage, CategoryPage, RecordPage };
 
 import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { Header, Menu } from '../Basic'
+
+import { Header } from '../Basic'
+import Menu from '../Menu/Container'
+
 import * as category from '../Modules/Category'
 import { useDispatch, useSelector } from 'react-redux';
 import { State } from '../Modules';
@@ -23,9 +26,7 @@ const Page = () => {
 
 	return (
 	<>
-		<Menu 
-			categories={categories} categoryAdd={categoryAdd}
-			visible={visible} setVisible={setVisible}/>
+		<Menu visible={visible} setVisible={setVisible}/>
 		<Stack.Navigator screenOptions={{
 			header : ({}) => (<Header func={() => setVisible(true)}/>)}}>
 			<Stack.Screen name="MainPage" component={MainPage} />
