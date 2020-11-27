@@ -12,7 +12,7 @@ export const h1 = styled.Text`
 `
 
 export const p = styled.Text`
-	font-size : 5px;
+	font-size : 20px;
 `
 
 export const Horizontal = styled.View`

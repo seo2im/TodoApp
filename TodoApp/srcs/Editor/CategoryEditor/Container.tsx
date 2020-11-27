@@ -1,9 +1,9 @@
 import React from 'react'
 import Component from './Component'
 
-import { Modal } from '../Basic'
+import { Modal } from '../../Basic'
 import { useDispatch } from 'react-redux'
-import * as category from '../Modules/Category'
+import * as category from '../../Modules/Category'
 
 const Container = ({ visible, setVisible }) => {
 	const dispatch = useDispatch();

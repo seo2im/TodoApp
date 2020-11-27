@@ -5,7 +5,7 @@ export const ButtonText = styled(Basic.h1)`
 
 `
 export const AddButton = styled.TouchableOpacity`
-	
+
 `
 export const Close = styled.TouchableOpacity`
 	position : relative;

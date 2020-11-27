@@ -1,6 +1,7 @@
 import MainPage from './MainPage/Container'
 import CategoryPage from './CategoryPage/Container'
 import RecordPage from './RecordPage/Container'
+import RecordEditor from './RecordEdit/Container'
 export { MainPage, CategoryPage, RecordPage };
 
 import React, { useState, useRef } from 'react'
@@ -29,6 +30,7 @@ const Page = ({setVisible}) => {
 			<Stack.Screen name="MainPage" component={MainPage} />
 			<Stack.Screen name="CategoryPage" component={CategoryPage} />
 			<Stack.Screen name="RecordPage" component={RecordPage} />
+			<Stack.Screen name="RecordEditor" component={RecordEditor} />
 		</Stack.Navigator>
 	)
 }

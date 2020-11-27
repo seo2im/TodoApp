@@ -3,7 +3,7 @@ import * as styled from './Style'
 import { FlatList, Animated } from 'react-native'
 import { PageProp } from '../Types'
 
-import Editor from '../Editor/Container'
+import { CategoryEditor } from '../Editor'
 import { Add } from '../Basic'
 
 const Component = ({categories, setVisible, link } : PageProp.Menu) => {
@@ -55,7 +55,7 @@ const Component = ({categories, setVisible, link } : PageProp.Menu) => {
 					slideOut();
 				}}/>
 		</styled.View>
-		<Editor visible={edit} setVisible={setEdit} />
+		<CategoryEditor visible={edit} setVisible={setEdit} />
 		</>
 	)
 }

@@ -18,7 +18,8 @@ export type CategoryPage = {
 	todoEdit : (id : number, name : string) => void,
 	todoChange : (id : number) => void,
 	todoDel : (id : number) => void,
-	recordAdd : (catId : number, name : string, brief : string, content : string) => void,
+	editLink : (catId : number) => void,
+	recordLink : (recId : number) => void;
 }
 
 export type RecordPage = {

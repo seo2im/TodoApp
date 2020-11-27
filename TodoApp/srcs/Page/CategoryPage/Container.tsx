@@ -7,7 +7,7 @@ import * as record from '../../Modules/Record'
 
 import Component from './Component'
 
-const Container = ({ route }) => {
+const Container = ({ route, navigation }) => {
 	const { catId, catName } = route.params;
 	const dispatch = useDispatch();
 	const { categories, todos, records } = useSelector((state : State) => state)
@@ -30,9 +30,9 @@ const Container = ({ route }) => {
 	const todoDel = (id : number) => {
 		dispatch(todo.Del({ id }));
 	}
-	const recordAdd = (catId : number, name : string, content : string) => {
-		dispatch(record.Add({ catId, name, content }));
-	}
+
+	const editLink = (catId : number) => navigation.navigate('RecordEditor', { catId });
+	const recordLink = (recId : number) => navigation.navigate('RecordPage', { recId });
 
 	return (
 		<Component 
@@ -41,7 +41,7 @@ const Container = ({ route }) => {
 			records={records.filter(todo => todo.catId === catId)}
 			categoryEdit={categoryEdit}categoryDel={categoryDel}
 			todoAdd={todoAdd}todoEdit={todoEdit}todoChange={todoChange}todoDel={todoDel}
-			recordAdd={recordAdd}/>
+			editLink={editLink} recordLink={recordLink}/>
 	)
 }
 
