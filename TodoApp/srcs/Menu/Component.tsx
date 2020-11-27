@@ -5,9 +5,8 @@ import { PageProp } from '../Types'
 
 import Editor from '../Editor/Container'
 import { Add } from '../Basic'
-import { transform } from '@babel/core'
 
-const Component = ({categories, setVisible} : PageProp.Menu) => {
+const Component = ({categories, setVisible, link } : PageProp.Menu) => {
 	const [ edit, setEdit ] = useState<boolean>(false);
 
 	const slideAnim = useRef(new Animated.Value(-300)).current;
@@ -25,6 +24,7 @@ const Component = ({categories, setVisible} : PageProp.Menu) => {
 			duration : 500,
 			useNativeDriver : false,
 		}).start();
+		setTimeout(() => setVisible(false), 500);
 	}
 
 	useEffect(() => {
@@ -45,13 +45,14 @@ const Component = ({categories, setVisible} : PageProp.Menu) => {
 					data={categories}
 					keyExtractor={(item, index) => `${index}`}
 					renderItem={({ item, index }) => (
-					<styled.Cat>{item.name}</styled.Cat>
+					<styled.Cat onPress={() => {
+						link(item.id, item.name);slideOut();
+					}}>{item.name}</styled.Cat>
 					)}/>
 			</styled.Menu>
 			<styled.OutSide	activeOpacity={1}
 				onPress={() => {
 					slideOut();
-					setTimeout(() => setVisible(false), 500);
 				}}/>
 		</styled.View>
 		<Editor visible={edit} setVisible={setEdit} />

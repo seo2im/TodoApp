@@ -3,7 +3,7 @@ import CategoryPage from './CategoryPage/Container'
 import RecordPage from './RecordPage/Container'
 export { MainPage, CategoryPage, RecordPage };
 
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import { Header } from '../Basic'
@@ -15,8 +15,7 @@ import { State } from '../Modules';
 
 const Stack = createStackNavigator();
 
-const Page = () => {
-	const [ visible, setVisible ] = useState<boolean>(false);
+const Page = ({setVisible}) => {
 	const dispatch = useDispatch();
 	const categories = useSelector((state : State) => state.categories)
 
@@ -25,15 +24,12 @@ const Page = () => {
 	}
 
 	return (
-	<>
-		<Menu visible={visible} setVisible={setVisible}/>
 		<Stack.Navigator screenOptions={{
 			header : ({}) => (<Header func={() => setVisible(true)}/>)}}>
 			<Stack.Screen name="MainPage" component={MainPage} />
 			<Stack.Screen name="CategoryPage" component={CategoryPage} />
 			<Stack.Screen name="RecordPage" component={RecordPage} />
 		</Stack.Navigator>
-	</>
 	)
 }
 

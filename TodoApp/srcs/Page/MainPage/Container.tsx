@@ -6,18 +6,19 @@ import * as todo from '../../Modules/Todo'
 
 import Component from './Component'
 
-const Container = ({ route }) => {
+const Container = ({ navigation }) => {
 	const dispatch = useDispatch();
 	const { categories, todos } = useSelector((state : State) => state)
 
 	const todoChange = (id : number) => {
 		dispatch(todo.Change({ id }))
 	}
+	const link = (catId : number, catName : string) => navigation.navigate('CategoryPage', { catId })
 
 	return (
 		<Component
 			categories={categories} todos={todos}
-			todoChange={todoChange}/>
+			todoChange={todoChange} link={link}/>
 	)
 }
 

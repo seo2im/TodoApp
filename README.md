@@ -9,4 +9,11 @@ npm install -D typescript @types/jest @types/react @types/react-native @types/re
 [tsconfig.json]()
 [jest.config.json]()
 
+## Caustion
 
+### 1. Animatied in styled component
+```javascript
+const View = styled.view``
+
+<View as={Animated.View} style={{ /* Animate Style */}}>
+```

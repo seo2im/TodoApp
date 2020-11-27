@@ -5,14 +5,18 @@ import { Modal } from '../Basic';
 
 import Component from './Component'
 
-const Container = ({visible, setVisible}) => {
+const Container = ({visible, setVisible, navigation}) => {
 	const categories = useSelector((state : State) => state.categories);
+	
+	const link = (catId : number, catName : string) => 
+		navigation.navigate('CategoryPage' , {catId, catName})
 
 	return (
 		<Modal visible={visible} setVisible={setVisible}>
 			<Component
 				categories={categories}
-				setVisible={setVisible} />
+				setVisible={setVisible}
+				link={link} />
 		</Modal>
 	)
 }

@@ -5,7 +5,7 @@ import { FlatList } from 'react-native'
 import { CheckBox } from '../../Basic'
 
 const Component = 
-({ categories, todos, todoChange} : PageProp.MainPage) => 
+({ categories, todos, todoChange, link} : PageProp.MainPage) => 
 {
 	return (
 		<styled.View>
@@ -17,7 +17,9 @@ const Component =
 					const todoList = todos.filter(todo => todo.catId === item.id)
 					return (
 						<>
-							<styled.CatTitle>{item.name}</styled.CatTitle>
+							<styled.CatTitle onPress={() => link(item.id, item.name)}>
+								<styled.CatTitleText>{item.name}</styled.CatTitleText>
+							</styled.CatTitle>
 							<FlatList
 								data={todoList}
 								keyExtractor={(item, index) => `${index}`}

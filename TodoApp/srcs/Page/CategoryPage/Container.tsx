@@ -8,7 +8,7 @@ import * as record from '../../Modules/Record'
 import Component from './Component'
 
 const Container = ({ route }) => {
-	const { catId, catName } = route.param
+	const { catId, catName } = route.params;
 	const dispatch = useDispatch();
 	const { categories, todos, records } = useSelector((state : State) => state)
 

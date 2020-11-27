@@ -9,9 +9,13 @@ export const Title = styled(Basic.h1)`
 	font-size : 30px;
 `
 
-export const CatTitle = styled(Basic.h1)`
+export const CatTitle = styled.TouchableOpacity`
 	border-bottom-width : 1px;
 	border-bottom-color : grey;
+`
+
+export const CatTitleText = styled(Basic.h1)`
+	
 `
 
 export const TodoSelector = styled(Basic.Horizontal)`

@@ -1,9 +1,11 @@
 import { tCategory, tCategories, tTodos, tRecord, tRecords } from './DataType'
+import { Ref } from 'react'
 
 export type MainPage = {
 	categories : tCategories,
 	todos : tTodos,
-	todoChange : (id : number) => void
+	todoChange : (id : number) => void,
+	link : (catId : number, catName : string) => void
 }
 
 export type CategoryPage = {
@@ -33,5 +35,6 @@ export type CheckBox = {
 
 export type Menu = {
 	setVisible : (visible : boolean) => void,
-	categories : tCategories
+	categories : tCategories,
+	link : (catId : number, catName : string) => void;
 }
