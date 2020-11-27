@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import * as styled from './Style'
+import { Close, Ok } from '../Basic'
 
 const Component = ({ setVisible, categoryAdd }) => {
 	const [ name, setName ] = useState<string>("");
@@ -7,17 +8,15 @@ const Component = ({ setVisible, categoryAdd }) => {
 	return (
 		<styled.View>
 			<styled.Box>
-				<styled.Close onPress={() => setVisible(false)}>
-					<styled.CloseText>X</styled.CloseText>
-				</styled.Close>
+				<Close onPress={() => setVisible(false)}/>
+				<styled.Title>새 카테고리</styled.Title>
 				<styled.Input 
+					placeholder="카테고리 이름"
 					value={name}
 					onChangeText={value => setName(value)}/>
-				<styled.Ok onPress={() => {
+				<Ok onPress={() => {
 						categoryAdd(name);setName("");setVisible(false);
-					}}>
-					<styled.OkText>OK</styled.OkText>
-				</styled.Ok>
+					}}/>
 			</styled.Box>
 		</styled.View>
 	)

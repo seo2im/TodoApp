@@ -21,28 +21,19 @@ export const Box = styled.View`
 	position : relative;
 
 `
-
 export const Close = styled.TouchableOpacity`
 	position : relative;
 	top : 10px;
 	left : 270px;
 `
-
 export const CloseText = styled.Text`
 	font-size : 20px;
 `
-
+export const Title = styled(Basic.h1)`
+	position : relative;
+	left : 30px;
+`
 export const Input = styled.TextInput`
-	width : 100px;
-	border-bottom-width : 1px;
+	width : 200px;
 	margin : 0 auto;
-`
-
-export const Ok = styled.TouchableOpacity`
-	border-width : 1px;
-	margin : 20px auto;
-`
-
-export const OkText = styled.Text`
-	
 `

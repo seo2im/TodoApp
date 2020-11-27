@@ -4,6 +4,7 @@ import { FlatList } from 'react-native'
 import { PageProp } from '../Types'
 
 import Editor from '../Editor/Container'
+import { Add } from '../Basic'
 
 const Component = ({categories, setVisible} : PageProp.Menu) => {
 	const [ edit, setEdit ] = useState<boolean>(false);
@@ -14,9 +15,7 @@ const Component = ({categories, setVisible} : PageProp.Menu) => {
 			<styled.Menu>
 				<styled.TitleDiv>
 					<styled.Title>Category</styled.Title>
-					<styled.AddButton onPress={() => setEdit(true)}>
-						<styled.ButtonText>+</styled.ButtonText>
-					</styled.AddButton>
+					<Add onPress={() => setEdit(true)}/>
 				</styled.TitleDiv>
 				<FlatList 
 					data={categories}
