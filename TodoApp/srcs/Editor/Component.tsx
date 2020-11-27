@@ -15,6 +15,8 @@ const Component = ({ setVisible, categoryAdd }) => {
 					value={name}
 					onChangeText={value => setName(value)}/>
 				<Ok onPress={() => {
+						if (name === "")
+							return;
 						categoryAdd(name);setName("");setVisible(false);
 					}}/>
 			</styled.Box>

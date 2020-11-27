@@ -20,7 +20,7 @@ export const Ok = styled.TouchableOpacity`
 	border-radius : 10px;
 	margin : 0 auto;
 
-	padding : 10px
+	padding : 5px 10px;
 `
 
 export const OkText = styled(Basic.h1)`

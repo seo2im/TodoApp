@@ -1,9 +1,11 @@
 import styled from 'styled-components/native'
+//import { keyframes } from 'styled-components'
 import * as Basic from '../Styles/Basic'
 
 export const View = styled(Basic.Horizontal)`
 	width : 100%;
 	height : 100%;
+	background-color : rgba(0,0,0, 0.5);
 `
 export const Menu = styled.View`
 	width : 60%;
@@ -38,5 +40,5 @@ export const OutSide = styled.TouchableOpacity`
 	width : 40%;
 	height : 100%;
 
-	background-color : rgba(0,0,0, 0.5);
+	background-color : rgba(0,0,0,0);
 `
