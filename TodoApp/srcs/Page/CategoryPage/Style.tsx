@@ -29,6 +29,7 @@ export const TodoItem = styled(Basic.Horizontal)`
 `
 export const TodoP = styled(Basic.p)`
 	font-weight : bold;
+	margin-left : 10px;
 `
 
 export const RecordItem = styled.TouchableOpacity`

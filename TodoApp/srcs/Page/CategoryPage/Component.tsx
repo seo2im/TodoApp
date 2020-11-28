@@ -9,7 +9,7 @@ const Component =
 ({ category, todos, records, 
 categoryDel,
 todoChange,
-editLink, recordLink, goBack} : PageProp.CategoryPage) => 
+editLink, todoLink, recordLink, goBack} : PageProp.CategoryPage) => 
 {
 	const [ catEdit, setCatEdit] = useState<boolean>(false);
 	const [ edit, setEdit ] = useState<boolean>(false)
@@ -38,7 +38,7 @@ editLink, recordLink, goBack} : PageProp.CategoryPage) =>
 				renderItem={({item, index}) => (
 					<styled.TodoItem>
 						<CheckBox state={item.state} change={() => todoChange(item.id)}/>
-						<styled.TodoP>{item.name}</styled.TodoP>
+						<styled.TodoP onPress={() => todoLink(item.id)}>{item.name}</styled.TodoP>
 					</styled.TodoItem>
 				)}
 				/>

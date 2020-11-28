@@ -21,6 +21,7 @@ const Container = ({ route, navigation }) => {
 	
 
 	const editLink = (catId : number) => navigation.navigate('RecordEditor', { catId });
+	const todoLink = (id : number) => navigation.navigate('TodoPage', { id });
 	const recordLink = (recId : number) => navigation.navigate('RecordPage', { recId });
 	const goBack = () => navigation.goBack();
 
@@ -31,7 +32,7 @@ const Container = ({ route, navigation }) => {
 			records={records.filter(todo => todo.catId === catId)}
 			categoryDel={categoryDel}
 			todoChange={todoChange}
-			editLink={editLink} recordLink={recordLink}goBack={goBack}/>
+			editLink={editLink}todoLink={todoLink}recordLink={recordLink}goBack={goBack}/>
 	)
 }
 

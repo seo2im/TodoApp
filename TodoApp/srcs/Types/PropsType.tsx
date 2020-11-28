@@ -15,6 +15,7 @@ export type CategoryPage = {
 	categoryDel : (id : number) => void,
 	todoChange : (id : number) => void,
 	editLink : (catId : number) => void,
+	todoLink : (id : number) => void,
 	recordLink : (recId : number) => void,
 	goBack : () => void
 }
