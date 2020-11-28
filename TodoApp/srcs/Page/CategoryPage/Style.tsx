@@ -5,8 +5,14 @@ export const View = styled(Basic.View)`
 
 `
 
-export const Header = styled(Basic.h1)`
-	
+export const Header = styled(Basic.Horizontal)`
+	justify-content : space-between;
+`
+export const HeaderText = styled(Basic.h1)`
+
+`
+export const ButtonDiv = styled(Basic.Horizontal)`
+
 `
 
 export const Title = styled(Basic.Horizontal)`

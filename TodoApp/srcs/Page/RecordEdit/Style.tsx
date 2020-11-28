@@ -15,18 +15,12 @@ export const Content = styled.TextInput`
 	font-size : 20px;
 `
 
-export const BottomAdd = styled.View`
-	width : 70px;
-	height : 70px;
-	border-radius : 35px;
-	background-color : blue;
+export const ButtonWrap = styled.View`
+	background-color : white;
+	border-radius : 10px;
 	elevation : 2;
 
 	position : absolute;
-	top : 85%;
+	top : 90%;
 	left : 80%;
-
-	flex-direction : row;
-	align-items : center;
-	justify-content : center;
 `

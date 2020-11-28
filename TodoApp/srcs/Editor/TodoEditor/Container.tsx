@@ -3,20 +3,25 @@ import Component from './Component'
 
 import { Modal } from '../../Basic'
 import { useDispatch } from 'react-redux'
-import * as todo from '../../Modules/Category'
+import * as _todo from '../../Modules/Todo'
 
-const Container = ({ visible, setVisible }) => {
+const Container = ({ visible, setVisible, catId, todo }) => {
 	const dispatch = useDispatch();
 
 	const todoAdd = (name : string) => {
-		dispatch(todo.Add({ name }))
+		dispatch(_todo.Add({ catId, name }));
+	}
+	const todoEdit = (id : number, name : string) => {
+		dispatch(_todo.Edit({ id, name }));
 	}
 
 	return (
 		<Modal visible={visible} setVisible={setVisible}>
 			<Component
 				setVisible={setVisible}
-				todoAdd={todoAdd}/>
+				todoAdd={todoAdd}
+				todoEdit={todoEdit}
+				todo={todo}/>
 		</Modal>
 	)
 }

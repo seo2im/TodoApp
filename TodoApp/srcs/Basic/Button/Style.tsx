@@ -13,8 +13,7 @@ export const Close = styled.TouchableOpacity`
 	left : 270px;
 `
 export const Ok = styled.TouchableOpacity`
-	position : relative;
-	top : 50px;
+	
 
 	border-width : 1px;
 	border-radius : 10px;

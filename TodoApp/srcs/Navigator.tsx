@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 
 import Page from './Page'
@@ -13,15 +13,19 @@ const Navigator = () => {
 	const [ visible, setVisible ] = useState<boolean>(false);
 
 	const dispatch = useDispatch();
-	dispatch(category.Init({}));
-	dispatch(todo.Init({}));
-	dispatch(record.Init({}));
+
+	useEffect(() => {
+		dispatch(category.Init({}));
+		dispatch(todo.Init({}));
+		dispatch(record.Init({}));
+	}, [])
+	
 
 	const navRef = useRef(null);
 
 	return (
 		<>
-		<Menu visible={visible} setVisible={setVisible} navigation={navRef.current}/>
+			<Menu visible={visible} setVisible={setVisible} navigation={navRef.current}/>
 			<NavigationContainer ref={navRef}>
 				<Page setVisible={setVisible}/>
 			</NavigationContainer>

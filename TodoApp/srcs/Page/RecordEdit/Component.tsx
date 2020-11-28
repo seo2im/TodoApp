@@ -1,11 +1,18 @@
 import React, { useState } from 'react'
 import * as styled from './Style'
-import { Add } from '../../Basic'
+import { Button } from '../../Basic'
+import { tRecord } from '../../Types/DataType'
 
+type Props = {
+	recordAdd : (name : string, content : string) => void,
+	recordEdit : (id : number, name : string, content : string) => void,
+	link : () => void,
+	record? : tRecord
+}
 
-const Component = ({recordAdd, link}) => {
-	const [ title, setTitle ] = useState<string>("");
-	const [ content, setContent ] = useState<string>("");
+const Component = ({recordAdd, recordEdit, link, record} : Props) => {
+	const [ title, setTitle ] = useState<string>(record ? record.name : "");
+	const [ content, setContent ] = useState<string>(record ? record.content : "");
 
 	return (
 		<styled.View>
@@ -20,12 +27,13 @@ const Component = ({recordAdd, link}) => {
 				maxLength={40}
 				onChangeText={value => setContent(value)}
 				/>
-			<styled.BottomAdd>
-				<Add onPress={() => {
+			<styled.ButtonWrap>
+				<Button title={record ? "Edit" : "Add"} onPress={() => {
 				if (title === "")
 					return ;
+				record ? recordEdit(record.id, title, content) :
 				recordAdd(title, content);link()}}/>
-			</styled.BottomAdd>
+			</styled.ButtonWrap>
 		</styled.View>
 	)
 }

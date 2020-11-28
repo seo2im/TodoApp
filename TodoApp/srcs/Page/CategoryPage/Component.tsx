@@ -2,21 +2,32 @@ import React, { useState } from 'react'
 import { PageProp } from '../../Types'
 import * as styled from './Style'
 import { FlatList } from 'react-native'
-import { CheckBox, Add } from '../../Basic'
-import { TodoEditor } from '../../Editor'
+import { CheckBox, Add, Button } from '../../Basic'
+import { TodoEditor, CategoryEditor } from '../../Editor'
 
 const Component = 
 ({ category, todos, records, 
-categoryEdit, categoryDel,
-todoAdd, todoDel, todoChange, todoEdit,
-editLink, recordLink} : PageProp.CategoryPage) => 
+categoryDel,
+todoChange,
+editLink, recordLink, goBack} : PageProp.CategoryPage) => 
 {
+	const [ catEdit, setCatEdit] = useState<boolean>(false);
 	const [ edit, setEdit ] = useState<boolean>(false)
 
 	return (
 		<>
+		{category ? 
+		(<>
 		<styled.View>
-			<styled.Header>{category.name}</styled.Header>
+			<styled.Header>
+				<styled.HeaderText>{category.name}</styled.HeaderText>
+				<styled.ButtonDiv>
+					<Button title="Edit" onPress={() => setCatEdit(true)}/>
+					<Button title="Del" onPress={() => {
+						categoryDel(category.id);goBack();
+					}}/>
+				</styled.ButtonDiv>
+			</styled.Header>
 			<styled.Title>
 				<styled.TitleText>Todo</styled.TitleText>
 				<Add onPress={() => setEdit(true)}/>
@@ -40,15 +51,16 @@ editLink, recordLink} : PageProp.CategoryPage) =>
 				keyExtractor={(item, index) => `${index}`}
 				renderItem={({item, index}) => (
 					<styled.RecordItem onPress={() => recordLink(item.id)}>
-						
-							<styled.recordDate>{item.date}</styled.recordDate>
-							<styled.recordTitle>{item.name}</styled.recordTitle>
-						
+						<styled.recordDate>{item.date}</styled.recordDate>
+						<styled.recordTitle>{item.name}</styled.recordTitle>
 					</styled.RecordItem>
 				)}
 				/>
 		</styled.View>
-		<TodoEditor visible={edit} setVisible={setEdit}/>
+		<CategoryEditor visible={catEdit} setVisible={setCatEdit} category={category}/>
+		<TodoEditor visible={edit} setVisible={setEdit} catId={category.id} todo={undefined}/>
+		</>)
+		: null}
 		</>
 	)
 }

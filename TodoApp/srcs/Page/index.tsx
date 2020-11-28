@@ -17,13 +17,6 @@ import { State } from '../Modules';
 const Stack = createStackNavigator();
 
 const Page = ({setVisible}) => {
-	const dispatch = useDispatch();
-	const categories = useSelector((state : State) => state.categories)
-
-	const categoryAdd = (name : string) => {
-		dispatch(category.Add({ name }))
-	}
-
 	return (
 		<Stack.Navigator screenOptions={{
 			header : ({}) => (<Header func={() => setVisible(true)}/>)}}>

@@ -7,9 +7,9 @@ const TODO_EDIT = 'todo/EDIT' as const;
 const TODO_CHANGE = 'todo/DONE' as const;
 
 const initState : tTodos = [{
-	catId : 0, id : 0, name : "testTodo1",  state : false
+	catId : 0, id : 0, name : "testTodo1",  date : '20.11.28', state : false
 },{
-	catId : 0, id : 1, name : "testTodo2",  state : true
+	catId : 0, id : 1, name : "testTodo2",  date : '20.11.28', state : true
 }];
 export const Init = ({ todos = initState } : { todos? : tTodos }) => ({
 	type : TODO_INIT,
@@ -50,10 +50,13 @@ const Reducer = (state : tTodos = [], action : Action) => {
 			]
 
 		case TODO_ADD :
+			const date = new Date();
+
 			return [{
 				catId : action.payload.catId,
 				id : state.length === 0 ? 0 : state[state.length - 1].id + 1,
 				name : action.payload.name,
+				date : `${date.getFullYear()%100}.${date.getMonth()}.${date.getDate()}`,
 				state : false}, ...state];
 
 		case TODO_DEL :

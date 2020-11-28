@@ -28,11 +28,11 @@ export const Del = ({ id } : { id : number }) =>
 	type : RECORD_DEL,
 	payload : { id }
 })
-export const Edit = ({ id, name, brief, content} :
-{ id : number, name : string, brief : string, content : string}) =>
+export const Edit = ({ id, name, content} :
+{ id : number, name : string, content : string}) =>
 ({
 	type : RECORD_EDIT,
-	payload : { id, name, brief, content }
+	payload : { id, name, content }
 })
 
 type Action =
@@ -65,7 +65,6 @@ const Reducer = (state : tRecords = [], action : Action) => {
 				if (rec.id === action.payload.id)
 					return {...rec, 
 						name : action.payload.name,
-						brief : action.payload.brief,
 						content : action.payload.content
 					};
 				return rec;

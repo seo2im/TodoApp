@@ -3,20 +3,25 @@ import Component from './Component'
 
 import { Modal } from '../../Basic'
 import { useDispatch } from 'react-redux'
-import * as category from '../../Modules/Category'
+import * as _category from '../../Modules/Category'
 
-const Container = ({ visible, setVisible }) => {
+const Container = ({ visible, setVisible, category }) => {
 	const dispatch = useDispatch();
 
 	const categoryAdd = (name : string) => {
-		dispatch(category.Add({ name }))
+		dispatch(_category.Add({ name }))
+	}
+	const categoryEdit = (id : number, name : string) => {
+		dispatch(_category.Edit({ id, name }))
 	}
 
 	return (
 		<Modal visible={visible} setVisible={setVisible}>
 			<Component
 				setVisible={setVisible}
-				categoryAdd={categoryAdd}/>
+				categoryAdd={categoryAdd}
+				categoryEdit={categoryEdit}
+				category={category}/>
 		</Modal>
 	)
 }

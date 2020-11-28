@@ -8,6 +8,7 @@ export type tTodo = {
 	catId : number,
 	id : number,
 	name : string,
+	date : string,
 	state : boolean
 };
 export type tTodos = tTodo[];

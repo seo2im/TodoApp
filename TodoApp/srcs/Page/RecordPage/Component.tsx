@@ -1,16 +1,29 @@
 import React from 'react'
 import { PageProp } from '../../Types'
 
+import { Button } from '../../Basic'
 import * as styled from './Style'
 
 const Component =
-({ record, recordDel, recordEdit} : PageProp.RecordPage) => {
+({ record, recordDel, editLink, goBack} : PageProp.RecordPage) => {
 	return (
+		<>
+		{record ?
 		<styled.View>
-			<styled.Title>{record.name}</styled.Title>
+			<styled.Title>
+				<styled.TitleText>{record.name}</styled.TitleText>
+				<styled.buttonDiv>
+					<Button title="Edit" onPress={() => editLink(record.catId, record)}/>
+					<Button title="Del" onPress={() => {
+						recordDel(record.id);
+						goBack(record.catId);
+					}}/>
+				</styled.buttonDiv>
+			</styled.Title>
 			<styled.Date>{record.date}</styled.Date>
 			<styled.Content>{record.content}</styled.Content>
-		</styled.View>
+		</styled.View> : null}
+		</>
 	)
 }
 

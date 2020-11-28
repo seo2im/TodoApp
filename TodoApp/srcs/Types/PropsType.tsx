@@ -12,20 +12,18 @@ export type CategoryPage = {
 	category : tCategory
 	todos : tTodos,
 	records : tRecords
-	categoryEdit : (id : number, name : string) => void,
 	categoryDel : (id : number) => void,
-	todoAdd : (catId : number, name :string) => void,
-	todoEdit : (id : number, name : string) => void,
 	todoChange : (id : number) => void,
-	todoDel : (id : number) => void,
 	editLink : (catId : number) => void,
-	recordLink : (recId : number) => void;
+	recordLink : (recId : number) => void,
+	goBack : () => void
 }
 
 export type RecordPage = {
 	record : tRecord,
-	recordEdit : (id : number, name : string, brief : string, content : string) => void,
 	recordDel : (id : number) => void,
+	editLink : (catId : number, record : tRecord) => void,
+	goBack : (catId : number) => void
 }
 
 export type CheckBox = {

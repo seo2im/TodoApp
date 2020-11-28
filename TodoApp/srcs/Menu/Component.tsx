@@ -45,9 +45,9 @@ const Component = ({categories, setVisible, link } : PageProp.Menu) => {
 					data={categories}
 					keyExtractor={(item, index) => `${index}`}
 					renderItem={({ item, index }) => (
-					<styled.Cat onPress={() => {
-						link(item.id, item.name);slideOut();
-					}}>{item.name}</styled.Cat>
+						<styled.Cat onPress={() => {
+							link(item.id, item.name);slideOut();
+						}}>{item.name}</styled.Cat>
 					)}/>
 			</styled.Menu>
 			<styled.OutSide	activeOpacity={1}
@@ -55,7 +55,7 @@ const Component = ({categories, setVisible, link } : PageProp.Menu) => {
 					slideOut();
 				}}/>
 		</styled.View>
-		<CategoryEditor visible={edit} setVisible={setEdit} />
+		<CategoryEditor visible={edit} setVisible={setEdit} category={undefined}/>
 		</>
 	)
 }
