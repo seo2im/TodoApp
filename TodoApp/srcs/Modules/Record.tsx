@@ -1,5 +1,5 @@
-import * as storage from '../Storage/Storage'
-import { tRecords } from '../Types/DataType'
+import * as storage from '~/Storage/Storage'
+import { tRecords } from '~/Types/DataType'
 
 const RECORD_INIT = 'record/INIT' as const;
 const RECORD_ADD = 'record/ADD' as const;
@@ -54,7 +54,7 @@ const Reducer = (state : tRecords = [], action : Action) => {
 			const date = new Date();
 			newState = [{
 				catId : action.payload.catId,
-				id : state.length === 0 ? 0 : state[state.length - 1].id + 1,
+				id : state.length === 0 ? 0 : state[0].id + 1,
 				date : `${date.getFullYear() % 100}.${date.getMonth()}.${date.getDate()}`,
 				name : action.payload.name,
 				content : action.payload.content

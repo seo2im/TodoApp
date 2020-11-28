@@ -1,10 +1,10 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { State } from '../../Modules';
-import * as record from '../../Modules/Record'
+import { State } from '~/Modules';
+import * as record from '~/Modules/Record'
 
 import Component from './Component'
-import { tRecord } from '../../Types/DataType';
+import { tRecord } from '~/Types/DataType';
 
 const Container = ({ route, navigation }) => {
 	const { recId } = route.params;

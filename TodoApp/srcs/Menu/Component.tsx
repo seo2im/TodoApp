@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react'
 import * as styled from './Style'
 import { FlatList, Animated } from 'react-native'
-import { PageProp } from '../Types'
+import { PageProp } from '~/Types'
 
-import { CategoryEditor } from '../Editor'
-import { Add } from '../Basic'
+import { CategoryEditor } from '~/Editor'
+import { Add } from '~/Basic'
 
 const Component = ({categories, setVisible, link } : PageProp.Menu) => {
 	const [ edit, setEdit ] = useState<boolean>(false);

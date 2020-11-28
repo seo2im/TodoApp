@@ -1,5 +1,5 @@
-import * as storage from '../Storage/Storage'
-import { tCategories } from '../Types/DataType'
+import * as storage from '~/Storage/Storage'
+import { tCategories } from '~/Types/DataType'
 
 export const CATEGORY_INIT = 'category/INIT' as const;
 export const CATEGORY_ADD = 'category/ADD' as const;

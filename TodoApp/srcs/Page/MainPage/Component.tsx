@@ -1,15 +1,15 @@
 import React from 'react'
-import { PageProp } from '../../Types'
+import { PageProp } from '~/Types'
 import * as styled from './Style'
 import { FlatList } from 'react-native'
-import { CheckBox } from '../../Basic'
+import { CheckBox } from '~/Basic'
 
 const Component = 
 ({ categories, todos, todoChange, link} : PageProp.MainPage) => 
 {
 	return (
 		<styled.View>
-			<styled.Title>Main Page</styled.Title>
+			<styled.Title>Your Todos</styled.Title>
 			<FlatList
 				data={categories}
 				keyExtractor={(item, index) => `${index}`}
@@ -25,7 +25,7 @@ const Component =
 								keyExtractor={(item, index) => `${index}`}
 								renderItem={({item, index}) => (
 									<styled.TodoSelector>
-										<CheckBox state={item.state} change={() => todoChange(item.id)}/>
+										<CheckBox state={item.state} change={() => todoChange(item.id)} size={15}/>
 										<styled.TodoTitle>{item.name}</styled.TodoTitle>
 									</styled.TodoSelector>
 								)}/>

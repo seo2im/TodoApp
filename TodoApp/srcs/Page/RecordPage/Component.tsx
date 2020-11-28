@@ -1,7 +1,7 @@
 import React from 'react'
-import { PageProp } from '../../Types'
+import { PageProp } from '~/Types'
 
-import { Button } from '../../Basic'
+import { Button } from '~/Basic'
 import * as styled from './Style'
 
 const Component =

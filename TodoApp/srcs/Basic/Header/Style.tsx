@@ -1,9 +1,9 @@
 import styled from 'styled-components/native'
-import * as Basic from '../../Styles/Basic'
+import * as Basic from '~/Styles/Basic'
 
 export const View = styled.View`
 	height : 50px;
-	elevation : 1.5;
+	elevation : 5;
 	background-color : white;
 
 	flex-direction : row;

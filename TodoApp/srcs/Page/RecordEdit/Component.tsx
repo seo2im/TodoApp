@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import * as styled from './Style'
-import { Button } from '../../Basic'
-import { tRecord } from '../../Types/DataType'
+import { Button } from '~/Basic'
+import { tRecord } from '~/Types/DataType'
 
 type Props = {
 	recordAdd : (name : string, content : string) => void,

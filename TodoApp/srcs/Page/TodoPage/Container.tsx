@@ -1,9 +1,9 @@
 import React from 'react'
 
-import * as _todo from '../../Modules/Todo'
+import * as _todo from '~/Modules/Todo'
 import * as styled from './Style'
 import { useDispatch, useSelector } from 'react-redux'
-import { State } from '../../Modules'
+import { State } from '~/Modules'
 
 import Component from './Component'
 

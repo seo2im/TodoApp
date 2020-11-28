@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { tTodo } from '../../Types/DataType'
+import { tTodo } from '~/Types/DataType'
 
 import * as styled from './Style'
-import { Button } from '../../Basic'
-import { TodoEditor } from '../../Editor' 
+import { Button } from '~/Basic'
+import { TodoEditor } from '~/Editor' 
 
 type Props = {
 	todo : tTodo,

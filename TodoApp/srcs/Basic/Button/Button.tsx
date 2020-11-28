@@ -8,9 +8,9 @@ type Props = {
 
 const Button = ({title, onPress} : Props) => {
 	return (
-		<styled.Ok onPress={onPress}>
+		<styled.Button onPress={onPress}>
 			<styled.ButtonText>{title}</styled.ButtonText>
-		</styled.Ok>
+		</styled.Button>
 	)
 }
 

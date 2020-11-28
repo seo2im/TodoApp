@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { useSelector } from 'react-redux'
-import { State } from '../Modules'
-import { Modal } from '../Basic';
+import { State } from '~/Modules'
+import { Modal } from '~/Basic';
 
 import Component from './Component'
 

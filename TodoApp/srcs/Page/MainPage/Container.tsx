@@ -1,8 +1,7 @@
 import React from 'react'
-import { State } from '../../Modules'
+import { State } from '~/Modules'
 import { useDispatch, useSelector } from 'react-redux'
-import * as category from '../../Modules/Category'
-import * as todo from '../../Modules/Todo'
+import * as todo from '~/Modules/Todo'
 
 import Component from './Component'
 

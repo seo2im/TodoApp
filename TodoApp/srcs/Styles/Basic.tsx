@@ -2,7 +2,7 @@ import styled from 'styled-components/native'
 
 export const View = styled.View`
 	background-color : white;
-	padding : 15px;
+	padding : 15px 30px;
 	height : 100%;
 `
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import Reducer from './Modules'
+import Reducer from '~/Modules'
 const store = createStore(Reducer);
 
-import Navigator from './Navigator'
+import Navigator from '~/Navigator'
 
 const App = () => {
   

@@ -1,5 +1,5 @@
 import styled from 'styled-components/native'
-import * as Basic from '../../Styles/Basic'
+import * as Basic from '~/Styles/Basic'
 
 export const View = styled.View`
 	width : 100%;
@@ -7,7 +7,6 @@ export const View = styled.View`
 
 	background-color : rgba(0, 0, 0, 0.5);
 `
-
 export const Box = styled.View`
 	width : 300px;
 	height : 250px;
@@ -19,19 +18,20 @@ export const Box = styled.View`
 	position : relative;
 
 `
-export const Close = styled.TouchableOpacity`
+export const CloseWrap = styled.View`
 	position : relative;
 	top : 10px;
 	left : 270px;
-`
-export const CloseText = styled.Text`
-	font-size : 20px;
 `
 export const Title = styled(Basic.h1)`
 	position : relative;
 	left : 30px;
 `
 export const Input = styled.TextInput`
-	width : 200px;
+	font-size : 20px;
+	width : 230px;
 	margin : 0 auto;
+`
+export const ButtonWrap = styled.View`
+	margin-top : 50px;
 `

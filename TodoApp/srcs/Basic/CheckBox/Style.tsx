@@ -1,10 +1,13 @@
 import styled from 'styled-components/native'
 
-export const CheckBox = styled.TouchableOpacity`
-	width : 10px;
-	height : 10px;
-	border-width : 1px;
-	border-radius : 1px;
+export const CheckBox = styled.TouchableOpacity<{size : number, check : boolean}>`
+	width : ${({ size }) => size}px;
+	height : ${({ size }) => size}px;
 
-	background-color : ${({ check } : { check : boolean}) => check ? 'blue' : 'white'};
+	border-color : ${({ check }) => check ? '#aee6e6' : 'black'};
+	border-width : 1.5px;
+	
+	border-radius : 3px;
+
+	background-color : ${({ check }) => check ? '#aee6e6' : 'white'};
 `

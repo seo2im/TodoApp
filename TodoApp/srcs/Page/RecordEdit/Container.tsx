@@ -1,7 +1,6 @@
 import React from 'react'
-import { State } from '../../Modules'
 import { useDispatch, useSelector } from 'react-redux'
-import * as _record from '../../Modules/Record'
+import * as _record from '~/Modules/Record'
 
 import Component from './Component'
 

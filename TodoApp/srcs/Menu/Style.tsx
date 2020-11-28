@@ -1,6 +1,5 @@
 import styled from 'styled-components/native'
-//import { keyframes } from 'styled-components'
-import * as Basic from '../Styles/Basic'
+import * as Basic from '~/Styles/Basic'
 
 export const View = styled(Basic.Horizontal)`
 	width : 100%;
@@ -10,13 +9,12 @@ export const View = styled(Basic.Horizontal)`
 export const Menu = styled.View`
 	width : 60%;
 	height : 100%;
-	padding : 10px;
+	padding : 15px;
 
 	background-color : white;
 `
 export const TitleDiv = styled(Basic.Horizontal)`
-	padding-bottom : 10px;
-	margin-bottom : 10px;
+	margin-top : 15px;
 	
 	justify-content : space-between;
 	border-bottom-width : 1px;
@@ -29,12 +27,16 @@ export const ButtonText = styled(Basic.h1)`
 
 `
 export const Title = styled(Basic.h1)`
-	font-size : 20px;
+	font-size : 25px;
 	font-weight : bold;
+
 	
 `
 export const Cat = styled(Basic.h1)`
-	font-size : 15px;
+	margin-top : 10px;
+	margin-left : 15px;
+	
+	font-size : 20px;
 `
 export const OutSide = styled.TouchableOpacity`
 	width : 40%;
