@@ -6,7 +6,7 @@ import * as record from '../../Modules/Record'
 import Component from './Component'
 
 const Container = ({ route }) => {
-	const { catName, recId } = route.param;
+	const { recId } = route.params;
 	const dispatch = useDispatch();
 	const records = useSelector((state : State) => state.records);
 	
@@ -19,7 +19,6 @@ const Container = ({ route }) => {
 
 	return (
 		<Component 
-			catName={catName}
 			record={records.find(rec => rec.id === recId)}
 			recordDel={recordDel}
 			recordEdit={recordEdit}/>

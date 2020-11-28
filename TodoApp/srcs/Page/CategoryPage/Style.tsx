@@ -24,3 +24,16 @@ export const TodoItem = styled(Basic.Horizontal)`
 export const TodoP = styled(Basic.p)`
 	font-weight : bold;
 `
+
+export const RecordItem = styled.TouchableOpacity`
+	flex-direction : row;
+	align-items : flex-end;
+
+`
+export const recordDate = styled(Basic.p)`
+	font-size : 15px;
+	margin-right : 20px;
+`
+export const recordTitle = styled(Basic.p)`
+	font-weight : bold;
+`

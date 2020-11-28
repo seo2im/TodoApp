@@ -23,7 +23,6 @@ export type CategoryPage = {
 }
 
 export type RecordPage = {
-	catName : string,
 	record : tRecord,
 	recordEdit : (id : number, name : string, brief : string, content : string) => void,
 	recordDel : (id : number) => void,

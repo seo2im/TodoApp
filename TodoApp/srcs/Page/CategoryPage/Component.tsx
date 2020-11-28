@@ -39,10 +39,12 @@ editLink, recordLink} : PageProp.CategoryPage) =>
 				data={records}
 				keyExtractor={(item, index) => `${index}`}
 				renderItem={({item, index}) => (
-					<styled.TodoItem>
-						<styled.TodoP>{item.date}</styled.TodoP>
-						<styled.TodoP>{item.name}</styled.TodoP>
-					</styled.TodoItem>
+					<styled.RecordItem onPress={() => recordLink(item.id)}>
+						
+							<styled.recordDate>{item.date}</styled.recordDate>
+							<styled.recordTitle>{item.name}</styled.recordTitle>
+						
+					</styled.RecordItem>
 				)}
 				/>
 		</styled.View>
