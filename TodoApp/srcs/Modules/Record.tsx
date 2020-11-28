@@ -1,3 +1,4 @@
+import * as storage from '../Storage/Storage'
 import { tRecords } from '../Types/DataType'
 
 const RECORD_INIT = 'record/INIT' as const;
@@ -41,6 +42,8 @@ type Action =
 	| ReturnType<typeof Del>
 	| ReturnType<typeof Edit>
 const Reducer = (state : tRecords = [], action : Action) => {
+	let newState;
+	
 	switch (action.type) {
 		case RECORD_INIT :
 			return [
@@ -49,26 +52,30 @@ const Reducer = (state : tRecords = [], action : Action) => {
 
 		case RECORD_ADD :
 			const date = new Date();
-			return [{
+			newState = [{
 				catId : action.payload.catId,
 				id : state.length === 0 ? 0 : state[state.length - 1].id + 1,
 				date : `${date.getFullYear() % 100}.${date.getMonth()}.${date.getDate()}`,
 				name : action.payload.name,
 				content : action.payload.content
 			}, ...state]
+			storage.setData('records', newState);
+			return newState;
 		
 		case RECORD_DEL :
 			return state.filter(rec => rec.id !== action.payload.id)
 		
 		case RECORD_EDIT :
-			return state.map(rec => {
-				if (rec.id === action.payload.id)
+			newState = state.map(rec => {
+				newState = (rec.id === action.payload.id)
 					return {...rec, 
 						name : action.payload.name,
 						content : action.payload.content
 					};
 				return rec;
 			})
+			storage.setData('records', newState);
+			return newState;
 		
 		default :
 			return state;

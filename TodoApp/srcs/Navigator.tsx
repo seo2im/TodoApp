@@ -9,18 +9,21 @@ import * as category from './Modules/Category'
 import * as todo from './Modules/Todo'
 import * as record from './Modules/Record'
 
+import * as storage from './Storage/Storage'
+
 const Navigator = () => {
 	const [ visible, setVisible ] = useState<boolean>(false);
-
 	const dispatch = useDispatch();
 
+	const loadData = async () => {
+		await storage.getData("categories" ,(data) => dispatch(category.Init(data)));
+		await storage.getData("todos", (data) => dispatch(todo.Init(data)));
+		await storage.getData("records", (data) => dispatch(record.Init(data)));
+	}
 	useEffect(() => {
-		dispatch(category.Init({}));
-		dispatch(todo.Init({}));
-		dispatch(record.Init({}));
+		loadData();
 	}, [])
 	
-
 	const navRef = useRef(null);
 
 	return (

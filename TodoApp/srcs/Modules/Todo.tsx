@@ -1,3 +1,4 @@
+import * as storage from '../Storage/Storage'
 import { tTodos } from '../Types/DataType'
 
 const TODO_INIT = 'todo/INIT' as const;
@@ -43,6 +44,8 @@ type Action =
 	| ReturnType<typeof Edit>
 	| ReturnType<typeof Change>;
 const Reducer = (state : tTodos = [], action : Action) => {
+	let newState;
+
 	switch (action.type) {
 		case TODO_INIT :
 			return [
@@ -51,30 +54,37 @@ const Reducer = (state : tTodos = [], action : Action) => {
 
 		case TODO_ADD :
 			const date = new Date();
-
-			return [{
+			newState = [{
 				catId : action.payload.catId,
 				id : state.length === 0 ? 0 : state[state.length - 1].id + 1,
 				name : action.payload.name,
 				date : `${date.getFullYear()%100}.${date.getMonth()}.${date.getDate()}`,
 				state : false}, ...state];
+			storage.setData('todos', newState);
+			return newState;
 
 		case TODO_DEL :
-			return state.filter(todo => todo.id !== action.payload.id);
-		
+			newState = state.filter(todo => todo.id !== action.payload.id);
+			storage.setData('todos', newState);
+			return newState;
+
 		case TODO_EDIT :
-			return state.map(todo => {
+			newState = state.map(todo => {
 				if (todo.id === action.payload.id)
 					return {...todo, name : action.payload.name};
 				return todo;
 			})
+			storage.setData('todos', newState);
+			return newState;
 		
 		case TODO_CHANGE :
-			return state.map(todo => {
+			newState = state.map(todo => {
 				if (todo.id === action.payload.id)
 					return {...todo, state : !todo.state}
 				return todo;
 			})
+			storage.setData('todos', newState);
+			return newState;
 			
 		default :
 			return state;

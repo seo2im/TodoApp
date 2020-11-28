@@ -7,7 +7,7 @@ import { TodoEditor, CategoryEditor } from '../../Editor'
 
 const Component = 
 ({ category, todos, records, 
-categoryDel,
+categoryDel,todoDel,recordDel,
 todoChange,
 editLink, todoLink, recordLink, goBack} : PageProp.CategoryPage) => 
 {
@@ -24,7 +24,10 @@ editLink, todoLink, recordLink, goBack} : PageProp.CategoryPage) =>
 				<styled.ButtonDiv>
 					<Button title="Edit" onPress={() => setCatEdit(true)}/>
 					<Button title="Del" onPress={() => {
-						categoryDel(category.id);goBack();
+						todos.forEach(todo => todoDel(todo.id))
+						records.forEach(rec => recordDel(rec.id));
+						categoryDel(category.id)
+						;goBack();
 					}}/>
 				</styled.ButtonDiv>
 			</styled.Header>

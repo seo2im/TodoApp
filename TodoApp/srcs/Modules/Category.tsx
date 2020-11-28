@@ -1,3 +1,4 @@
+import * as storage from '../Storage/Storage'
 import { tCategories } from '../Types/DataType'
 
 export const CATEGORY_INIT = 'category/INIT' as const;
@@ -32,27 +33,33 @@ type Action =
 	| ReturnType<typeof Del>
 	| ReturnType<typeof Edit>
 const Reducer = (state : tCategories = [], action : Action) => {
+	let newState;
+
 	switch (action.type) {
 		case CATEGORY_INIT :
-			return [
-				...action.payload.categories
-			]
+			return [...action.payload.categories]
 
 		case CATEGORY_ADD :
-			return [...state, {
+			newState = [...state, {
 				id : state.length === 0 ? 0 : state[state.length - 1].id + 1,
 				name : action.payload.name
 			}]
+			storage.setData('categories', newState);
+			return newState;
 
 		case CATEGORY_DEL :
-			return state.filter(cat => cat.id !== action.payload.id);
+			newState = state.filter(cat => cat.id !== action.payload.id);
+			storage.setData('categories', newState);
+			return newState;
 
 		case CATEGORY_EDIT :
-			return state.map(cat => {
+			newState = state.map(cat => {
 				if (cat.id === action.payload.id)
 					return { ...cat, name : action.payload.name };
 				return cat;
 			})
+			storage.setData('categories', newState);
+			return newState;
 			
 		default :
 			return state;
