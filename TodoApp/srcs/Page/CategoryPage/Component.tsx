@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { PageProp } from '~/Types'
 import * as styled from './Style'
 import { FlatList } from 'react-native'
-import { CheckBox, Add, Button } from '~/Basic'
+import { CheckBox, Add, Button, Alert } from '~/Basic'
 import { TodoEditor, CategoryEditor } from '~/Editor'
 
 const Component = 
@@ -23,12 +23,12 @@ editLink, todoLink, recordLink, goBack} : PageProp.CategoryPage) =>
 				<styled.HeaderText>{category.name}</styled.HeaderText>
 				<styled.ButtonDiv>
 					<Button title="Edit" onPress={() => setCatEdit(true)}/>
-					<Button title="Del" onPress={() => {
+					<Button title="Del" onPress={() => Alert(() => {
 						todos.forEach(todo => todoDel(todo.id))
 						records.forEach(rec => recordDel(rec.id));
 						categoryDel(category.id)
 						;goBack();
-					}}/>
+					})}/>
 				</styled.ButtonDiv>
 			</styled.Header>
 

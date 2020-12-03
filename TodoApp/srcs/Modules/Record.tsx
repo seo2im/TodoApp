@@ -63,7 +63,9 @@ const Reducer = (state : tRecords = [], action : Action) => {
 			return newState;
 		
 		case RECORD_DEL :
-			return state.filter(rec => rec.id !== action.payload.id)
+			newState = state.filter(rec => rec.id !== action.payload.id);
+			storage.setData('records', newState);
+			return newState
 		
 		case RECORD_EDIT :
 			newState = state.map(rec => {

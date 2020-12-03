@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { tTodo } from '~/Types/DataType'
 
 import * as styled from './Style'
-import { Button } from '~/Basic'
+import { Button, Alert } from '~/Basic'
 import { TodoEditor } from '~/Editor' 
 
 type Props = {
@@ -23,9 +23,9 @@ const Component = ({ todo, todoDel, goBack } : Props) => {
 				<styled.TitleText>Todo</styled.TitleText>
 				<styled.buttonDiv>
 					<Button title="Edit" onPress={() => setVisible(true)}/>
-					<Button title="Del" onPress={() => {
+					<Button title="Del" onPress={() => Alert(() => {
 						todoDel();goBack();
-					}}/>
+					})}/>
 				</styled.buttonDiv>
 			</styled.Title>
 			<styled.Date>등록일 {todo.date}</styled.Date>

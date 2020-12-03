@@ -5,3 +5,5 @@ export { default as Modal } from './Modal/Modal'
 export { default as Add } from './Button/AddButton'
 export { default as Close } from './Button/CloseButton'
 export { default as Button } from './Button/Button'
+
+export { default as Alert } from './Alert/Alert'
